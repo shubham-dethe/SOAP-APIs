@@ -39,4 +39,6 @@ public class GitController {
 		
 	}
 
+	
+	//do this using the terminal 
 }
