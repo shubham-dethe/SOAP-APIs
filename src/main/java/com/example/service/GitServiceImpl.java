@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,12 @@ public class GitServiceImpl implements GitService {
 	public Git getGit(int id) {
 		
 		return gitRepo.findById(id).get();
+	}
+
+	@Override
+	public List<Git> getAllGit() {
+		
+		return gitRepo.findAll();
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +30,12 @@ public class GitController {
 	@GetMapping("/{id}") 
 	public Git getData (@PathVariable int id){
 		return service.getGit(id);
+		
+	}
+	
+	@GetMapping 
+	public List<Git> getAllData (){
+		return service.getAllGit();
 		
 	}
 
