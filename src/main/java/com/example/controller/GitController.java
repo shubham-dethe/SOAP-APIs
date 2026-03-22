@@ -32,9 +32,10 @@ public class GitController {
 		
 	}
 	
+	
 	@GetMapping("/{id}") 
-	public Git getData (@PathVariable int id){
-		return service.getGit(id);
+	public ResponseEntity<Object> getData (@PathVariable int id){
+		return new ResponseEntity<Object> (service.getGit(id),HttpStatus.OK);
 		
 	}
 	
