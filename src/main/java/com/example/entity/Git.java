@@ -11,7 +11,7 @@ public class Git {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int id;
-	private String name; //name city num gender
+	private String name; // name city num gender
 	private String city;
 	private String num;
 
