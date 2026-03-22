@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.dto.RequestGitDto;
 import com.example.entity.Git;
 import com.example.repository.GitRepo;
 
@@ -16,7 +17,14 @@ public class GitServiceImpl implements GitService {
 	
 	
 	@Override
-	public void addGit(Git git) {
+	public void addGit(RequestGitDto requestGitDto) {
+		
+		Git git = new Git();
+		
+		git.setName(requestGitDto.getName());
+		git.setCity(requestGitDto.getCity());
+		git.setNum(requestGitDto.getNum());
+		git.setGender(requestGitDto.getGender());
 		gitRepo.save(git);
 		
 	}

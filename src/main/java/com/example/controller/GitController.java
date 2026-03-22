@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.dto.RequestGitDto;
 import com.example.entity.Git;
 import com.example.service.GitService;
 
@@ -21,9 +22,9 @@ public class GitController {
 	GitService service;
 	
 	@PostMapping
-	public void addData(@RequestBody Git git) {
+	public void addData(@RequestBody RequestGitDto requestGitDto) {
 		
-		service.addGit(git);
+		service.addGit(requestGitDto);
 		
 	}
 	
