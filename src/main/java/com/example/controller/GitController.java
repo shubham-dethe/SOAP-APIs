@@ -3,6 +3,8 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,15 +24,18 @@ public class GitController {
 	GitService service;
 	
 	@PostMapping
-	public void addData(@RequestBody RequestGitDto requestGitDto) {
+	ResponseEntity<String> addData(@RequestBody RequestGitDto requestGitDto) {
 		
 		service.addGit(requestGitDto);
 		
+		return new ResponseEntity<String>("Added the Data", HttpStatus.CREATED);
+		
 	}
 	
+	
 	@GetMapping("/{id}") 
-	public Git getData (@PathVariable int id){
-		return service.getGit(id);
+	public ResponseEntity<Object> getData (@PathVariable int id){
+		return new ResponseEntity<Object> (service.getGit(id),HttpStatus.OK);
 		
 	}
 	
@@ -40,4 +45,6 @@ public class GitController {
 		
 	}
 
+	
+	//do this using the terminal okay
 }
